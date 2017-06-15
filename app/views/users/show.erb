@@ -1,0 +1,18 @@
+<h1>Welcome Back to the park!</h1>
+
+<% if @user.admin %>
+  <p><strong>ADMIN</strong></p>
+  <br><br>
+<% end %>
+<p>
+  <strong>Name: </strong>
+  <%= @user.name %>
+</p><br><br>
+<p>
+  <strong>Tickets: </strong>
+  <%= @user.tickets %>
+</p><br><br>
+<p>
+  <strong>Mood: </strong>
+  <%= @user.mood %>
+</p><br><br>
