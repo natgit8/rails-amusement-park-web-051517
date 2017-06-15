@@ -3,10 +3,10 @@
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
 
   <label>Name: </label>
-  <%= text_field_tag :'name' %><br><br>
+  <%= text_field_tag 'user[name]' %><br><br>
 
   <label>Password: </label>
-  <%= password_field_tag :'password' %><br><br>
+  <%= password_field_tag 'user[password]' %><br><br>
 
   <%= submit_tag "Sign In" %>
 

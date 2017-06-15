@@ -1,8 +1,11 @@
-class UsersController < ApplicationController
+require "pry"
 
+class UsersController < ApplicationController
+  before_action :authenticated, only: [:show]
 
   def show
     @user = User.find(params[:id])
+    # to_welcome
   end
 
   def new
@@ -11,19 +14,18 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    return render :new unless @user.save
-    current_user = @user.id
-    redirect_to user_path(@user)
-  end
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    else
+      render :new
+    end
+  end 
 
   private
 
-  def id_params
-    params.require(:user).permit(:id)
-  end
-
   def user_params
-    params.require(:user).permit(:name, :happiness, :nausea, :height, :tickets, :admin ,:password, :password_confirmation)
+    params.require(:user).permit(:name, :happiness, :nausea, :height, :tickets, :admin ,:password)
   end
 
 end

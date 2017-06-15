@@ -6,6 +6,7 @@ describe 'Feature Test: User Signup', :type => :feature do
     visit_signup
     expect(current_path).to eq('/users/new')
     user_signup
+    # binding.pry
     expect(current_path).to eq('/users/1')
     expect(page).to have_content("Amy Poehler")
     expect(page).to have_content("Mood")
