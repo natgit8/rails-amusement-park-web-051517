@@ -1,0 +1,26 @@
+
+<p>
+  <strong>Name: </strong>
+  <%= @attraction.name %>
+</p><br>
+<p>
+  <strong>Tickets Required: </strong>
+  <%= @attraction.tickets %>
+</p><br>
+<p>
+  <strong>Nausea Rating: </strong>
+  <%= @attraction.nausea_rating %>
+</p><br>
+<p>
+  <strong>Happiness Rating: </strong>
+  <%= @attraction.happiness_rating %>
+</p><br>
+<p>
+  <strong>Minimum Height Required: </strong>
+  <%= @attraction.min_height %>
+</p>
+
+<% if admin? %>
+  <%= link_to 'Edit Attraction', edit_attraction_path(@attraction) %><br>
+  <%= link_to 'Delete Attraction', attraction_path(@attraction), method: :delete %>
+<% end %>
