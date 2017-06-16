@@ -1,5 +1,14 @@
 <h1>Welcome Back to the park!</h1>
 
+
+<p id="notice"><%= notice %></p>
+
+<% if @message %>
+  <div class="center alert">
+    <p><%= @message %></p>
+  </div>
+<% end %>
+
 <div class="container">
   <% if @user.admin %>
     <p><strong>ADMIN</strong></p>
@@ -24,5 +33,6 @@
 
   <%= link_to 'See attractions', attractions_path %>
   <%= link_to 'Log Out', signout_path, method: :post %>
+
 
 </div>

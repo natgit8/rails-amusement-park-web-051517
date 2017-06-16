@@ -21,6 +21,11 @@ class AttractionsController < ApplicationController
     @attraction = Attraction.find(params[:id])
   end
 
+  def attraction_ride
+    ride
+    redirect_to user_path(current_user)
+  end
+
   def update
     @attraction = Attraction.find(params[:id])
     @attraction.update(attraction_params)

@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # to_welcome
+    @message = params[:message] if params[:message]
+    @message ||= false
   end
 
   def new
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
     else
       render :new
     end
-  end 
+  end
 
   private
 
